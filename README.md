@@ -15,5 +15,15 @@ Official CoreOS Docker images for etcd is located at their own Docker
 repository Quay.io, and not DockerHub, so the etcd image needs to be pulled from
 there:
 
-$ docker login quay.io
-$ docker pull coreos/etcd
+```sh
+docker login quay.io
+docker pull coreos/etcd
+./run.sh
+```
+
+And results can be verified with:
+
+```sh
+curl -L http://localhost:5001/v2/stats/leader
+{"leader":"node1","followers":{"node2":{"latency":{"current":0.781206,"avera...
+```
